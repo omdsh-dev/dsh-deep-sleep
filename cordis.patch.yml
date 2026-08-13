@@ -1,0 +1,5 @@
+# Deep Sleep is a dual-face Profile Bundle. The Node half is a no-op Loader
+# anchor; the dsh.client declaration discovers the browser half.
+- insert:
+    - id: dsh-deep-sleep
+      name: '@dsh-external/dsh-deep-sleep'

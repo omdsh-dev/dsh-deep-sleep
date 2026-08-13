@@ -1,0 +1,83 @@
+{
+  "name": "@dsh-external/dsh-deep-sleep",
+  "version": "0.1.0",
+  "description": "DSH Web 的猫猫早睡提醒：每日墙钟触发、持续使用逐步撒娇、支持稍后提醒和今晚跳过。",
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@11.21.0",
+  "engines": {
+    "node": ">=22.19.0"
+  },
+  "main": "./lib/index.js",
+  "types": "./lib/types/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./lib/types/index.d.ts",
+      "default": "./lib/index.js"
+    },
+    "./client": {
+      "types": "./lib/types/client/index.d.ts",
+      "default": "./lib/client.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib/",
+    "assets/cat/",
+    "assets/PROMPTS.md",
+    "cordis.patch.yml",
+    "README.md",
+    "NOTICE.md",
+    "LICENSE"
+  ],
+  "license": "BSD-3-Clause",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/omdsh-dev/dsh-deep-sleep.git"
+  },
+  "homepage": "https://github.com/omdsh-dev/dsh-deep-sleep#readme",
+  "bugs": {
+    "url": "https://github.com/omdsh-dev/dsh-deep-sleep/issues"
+  },
+  "scripts": {
+    "generate:assets": "node scripts/embed-cat-sprite.mjs",
+    "prebuild": "pnpm run generate:assets",
+    "build": "node scripts/build.mjs",
+    "pretypecheck": "pnpm run generate:assets",
+    "typecheck": "node scripts/typecheck.mjs",
+    "pretest": "pnpm run generate:assets",
+    "test": "vitest run",
+    "check": "pnpm run typecheck && pnpm run test && pnpm run build",
+    "prepack": "pnpm run build"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "inject": [
+        "@deepseek-ai/dsh-client-runtime",
+        "@deepseek-ai/dsh-client-ui-conversation"
+      ]
+    }
+  },
+  "peerDependencies": {
+    "react": ">=18.2.0"
+  },
+  "peerDependenciesMeta": {
+    "react": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@types/react": "~18.3.1",
+    "@types/react-dom": "^18.3.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "tsdown": "^0.22.2",
+    "typescript": "^5.9.3",
+    "vitest": "^4.1.1",
+    "@types/node": "^22.20.0"
+  }
+}

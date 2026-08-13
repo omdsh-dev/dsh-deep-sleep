@@ -1,0 +1,7 @@
+node_modules/
+coverage/
+dist/
+*.tgz
+*.log
+.DS_Store
+src/client/cat-sprite.generated.ts
