@@ -1,5 +1,7 @@
 # DSH Deep Sleep
 
+**Author / Maintainer:** [@Zacklinkk](https://github.com/Zacklinkk)
+
 DSH Web 顶栏里的猫猫早睡提醒。每天本地时间 22:00，如果用户仍在当前 DSH 标签页活动，猫猫会从右上角慢慢探头，并用气泡提醒“要早点休息了”。继续使用时，它会逐步撒娇、犯困；用户可以稍后 15 分钟再提醒，或跳过当晚。
 
 ![猫猫动作精灵图](assets/cat/deep-sleep-cat-sprite.png)
